@@ -1,19 +1,19 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Analytical Chemistry Digital Summit 2022
+# To Do List
 
-> Interactive website for the Analytical Chemistry Digital Summit 2022
+> Interactive daily To-Do List
 
 
 ## Built With
 
 - Major languages: html, css, javascript
-- Frameworks: Bootstrap 5
-- Technologies used
+- Frameworks:
+- Technologies used: Webpack
 
 ## Live Demo 
 
-[Live Demo Link](https://jaferidrees.github.io/Html_css_Capstone/)
+[Live Demo Link](https://jaferidrees.github.io/To-Do-List/)
 
 
 ## Getting Started
@@ -21,19 +21,6 @@
 -Visit the [Live Demo] above.
 
 To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
 
 
 ## Authors
@@ -55,9 +42,6 @@ Feel free to check the [issues page](../../issues/).
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Special acknowledgement and thanks goes to Cindy Shin in Behance who invented the original design. @https://www.behance.net/adagio07
 
 ## 📝 License
 
