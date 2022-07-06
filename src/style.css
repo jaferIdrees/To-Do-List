@@ -7,12 +7,12 @@ main {
   justify-content: center;
 }
 
-ul>h2 {
+ul > h2 {
   align-self: center;
   padding-left: 10px;
 }
 
-ul>* {
+ul > * {
   border-bottom: 1px solid gray;
   width: 100%;
 }
@@ -63,7 +63,6 @@ input:focus {
   width: 100%;
   padding: 10px;
   border: none;
-  text-emphasis-style: italic;
 }
 
 .lItem {
@@ -92,7 +91,7 @@ input:disabled {
   border-bottom: none;
 }
 
-.editIcon:after {
+.editIcon::after {
   content: '\2807';
   font-size: 20px;
 }
@@ -132,7 +131,7 @@ input:disabled {
   border-bottom-left-radius: 6px;
 }
 
-.trash:after {
+.trash::after {
   content: '';
   position: absolute;
   left: -99px;
@@ -155,7 +154,7 @@ input:disabled {
   transform-origin: 19% 100%;
 }
 
-.trash span:after {
+.trash span::after {
   content: '';
   position: absolute;
   width: 7px;
@@ -181,7 +180,7 @@ input:disabled {
   border-radius: 5px;
 }
 
-.trash i:after {
+.trash i::after {
   content: '';
   width: 2px;
   height: 8px;
@@ -191,7 +190,7 @@ input:disabled {
   border-radius: 5px;
 }
 
-.trash i:before {
+.trash i::before {
   content: '';
   width: 2px;
   height: 8px;
@@ -211,7 +210,7 @@ input:disabled {
   display: none !important;
 }
 
-input[type="checkbox"]:checked+input {
+input[type="checkbox"]:checked + input {
   text-decoration: line-through;
   font-style: italic;
   color: red;
