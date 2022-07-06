@@ -61,7 +61,7 @@ function updateList(tasks) {
 
 document.getElementById('addItem').addEventListener('keyup', (e) => {
   if (e.key === 'Enter') {
-    tasks = addTask(tasks, e.target.value);
+    addTask(tasks, e.target.value);
     document.location.reload();
   }
 })
@@ -69,13 +69,3 @@ window.addEventListener('load', ()=> {
   if (localStorage.getItem('ToDoTasks')) tasks = JSON.parse(localStorage.getItem('ToDoTasks'));
   updateList(tasks);
 });
-/* function component() {
-  const element = document.createElement('div');
-
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
-} */
-
-// document.body.appendChild(component());
