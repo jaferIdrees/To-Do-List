@@ -1,6 +1,7 @@
 //import _ from 'lodash';
 import './style.css';
 import { enableEdit, editTask, addTask, removeTask } from './pageFunc.js';
+import {updateStatus, clearAllCompleted} from './status.js'
 
 
 let tasks = [
@@ -45,6 +46,7 @@ function addTaskToPage(task) {
   desc.onblur = editTask;
   chckbx.type = 'checkbox';
   chckbx.checked = task.completed;
+  chckbx.onchange = updateStatus;
   const litem = document.createElement('li');
   litem.className = "lItem";
   litem.append(chckbx, desc, icnCont);
@@ -65,6 +67,8 @@ document.getElementById('addItem').addEventListener('keyup', (e) => {
     document.location.reload();
   }
 })
+
+document.getElementById('clrCompleted').onclick = clearAllCompleted;
 window.addEventListener('load', ()=> {
   if (localStorage.getItem('ToDoTasks')) tasks = JSON.parse(localStorage.getItem('ToDoTasks'));
   updateList(tasks);
