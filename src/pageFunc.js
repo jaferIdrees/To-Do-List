@@ -24,6 +24,7 @@ export function addTask(tasks,desc){
   const newTask = new Task(desc, tasks.length);
   tasks.push(newTask);
   updateLocalStorage(tasks);
+  window.location.reload();
 }
 
 export function updateLocalStorage(tasks){

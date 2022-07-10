@@ -1,7 +1,8 @@
 //import _ from 'lodash';
 import './style.css';
 import { enableEdit, editTask, addTask, removeTask } from './pageFunc.js';
-import {updateStatus, clearAllCompleted} from './status.js'
+import {updateStatus, clearAllCompleted} from './status.js';
+import activateDrag from './drag.js';
 
 
 let tasks = [
@@ -48,10 +49,10 @@ function addTaskToPage(task) {
   chckbx.checked = task.completed;
   chckbx.onchange = updateStatus;
   const litem = document.createElement('li');
-  litem.className = "lItem";
+  litem.className = "lItem draggable";
   litem.append(chckbx, desc, icnCont);
   litem.onblur = editTask;
-  const ulist = document.getElementById('ulist');
+  const ulist = document.querySelector('.dragContainer');
   ulist.appendChild(litem);
 }
 
@@ -64,7 +65,6 @@ function updateList(tasks) {
 document.getElementById('addItem').addEventListener('keyup', (e) => {
   if (e.key === 'Enter') {
     addTask(tasks, e.target.value);
-    document.location.reload();
   }
 })
 
@@ -72,4 +72,6 @@ document.getElementById('clrCompleted').onclick = clearAllCompleted;
 window.addEventListener('load', ()=> {
   if (localStorage.getItem('ToDoTasks')) tasks = JSON.parse(localStorage.getItem('ToDoTasks'));
   updateList(tasks);
+  document.getElementById('addItem').focus();
+  activateDrag();
 });
