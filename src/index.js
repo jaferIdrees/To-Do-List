@@ -1,7 +1,7 @@
 //import _ from 'lodash';
 import './style.css';
 import { enableEdit, editTask, addTask, removeTask } from './pageFunc.js';
-import {updateStatus, clearAllCompleted} from './status.js';
+import { updateStatus, clearAllCompleted } from './status.js';
 import activateDrag from './drag.js';
 
 
@@ -28,6 +28,7 @@ function addTaskToPage(task) {
   const a1 = document.createElement('a');
   a1.className = 'trashCont hide';
   a1.appendChild(span2);
+  a1.onmousedown = preventDef;
   a1.onclick = removeTask;
   const a2 = document.createElement('a');
   a2.className = 'editIcon';
@@ -51,9 +52,15 @@ function addTaskToPage(task) {
   const litem = document.createElement('li');
   litem.className = "lItem draggable";
   litem.append(chckbx, desc, icnCont);
-  litem.onblur = editTask;
+  // litem.onfocusout = disableEdit;
+  // litem.onfocus = gotFocus;
+  // litem.onblur = editTask;
   const ulist = document.querySelector('.dragContainer');
   ulist.appendChild(litem);
+}
+
+function preventDef(e) {
+  e.preventDefault();
 }
 
 function updateList(tasks) {
@@ -64,12 +71,13 @@ function updateList(tasks) {
 
 document.getElementById('addItem').addEventListener('keyup', (e) => {
   if (e.key === 'Enter') {
-    addTask(tasks, e.target.value);
+    addTaskToPage(addTask(tasks, e.target.value));
+    e.target.value = '';
   }
 })
 
 document.getElementById('clrCompleted').onclick = clearAllCompleted;
-window.addEventListener('load', ()=> {
+window.addEventListener('load', () => {
   if (localStorage.getItem('ToDoTasks')) tasks = JSON.parse(localStorage.getItem('ToDoTasks'));
   updateList(tasks);
   document.getElementById('addItem').focus();

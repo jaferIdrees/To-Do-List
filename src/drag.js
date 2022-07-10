@@ -8,7 +8,16 @@ export default function activateDrag() {
       draggable.classList.add('dragging')
     })
     draggable.addEventListener('dragend', () => {
-      draggable.classList.remove('dragging')
+      draggable.classList.remove('dragging');
+      const tasks = JSON.parse( localStorage.getItem('ToDoTasks'));
+      const draggableElements = [...container.querySelectorAll('.draggable')]
+      for (let i=0; i<draggableElements.length; i++) {
+        let index = parseInt(draggableElements[i].querySelector('.task').id,10);
+        tasks[index].index = i;
+        draggableElements[i].querySelector('.task').id = i;
+      }
+      tasks.sort((a,b) => a.index > b.index ? 1 :-1);
+      localStorage.setItem('ToDoTasks', JSON.stringify(tasks))
     })
   });
 

@@ -10,8 +10,10 @@ export function updateStatus(){
 }
 
 export const clearAllCompleted = () => {
-  console.log('hello');
-  tasks = tasks.filter((task) => !task.completed)
+  tasks = JSON.parse( localStorage.getItem('ToDoTasks'));
+  console.log(tasks);
+  tasks = tasks.filter((task) => !task.completed);
+  console.log(tasks);
   updateLocalStorage(tasks);
   
   window.location.reload();
