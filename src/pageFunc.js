@@ -13,7 +13,6 @@ export function editTask(){
   this.parentNode.querySelector('.icnCont').querySelector('.trashCont').classList.add('hide');
   this.parentNode.querySelector('.icnCont').querySelector('.editIcon').classList.remove('hide');
   this.parentNode.querySelector('.task').focus();
-  this.parentNode.querySelector('.task').select();
   const tasks = JSON.parse(localStorage.getItem('ToDoTasks'));
   tasks[index].description = this.parentNode.querySelector('.task').value;
   updateLocalStorage(tasks);

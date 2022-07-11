@@ -73,6 +73,7 @@ document.getElementById('addItem').addEventListener('keyup', (e) => {
   if (e.key === 'Enter') {
     addTaskToPage(addTask(tasks, e.target.value));
     e.target.value = '';
+    activateDrag();
   }
 })
 
